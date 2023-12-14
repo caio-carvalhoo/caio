@@ -1,0 +1,59 @@
+class Pessoa{
+    #nome = null
+    #cpf = null
+   constructor(nome, cpf){
+    this.nome=nome
+    this.cpf=cpf
+    if(this.constructor===Pessoa){
+	    throw new TypeError("Esta classe não pode ser instanciada")
+    }
+  
+  
+   }
+    set nome(valor) {
+    this.#nome = valor;
+   
+    }
+
+    set cpf(valor) {
+        this.#cpf = valor;
+    }
+
+    get nome(){
+        return nome
+   
+    }
+    get cpf(){
+        return cpf
+    }
+    validarCpf(cpf){
+        const validarCpf = require('validar-cpf')
+    }
+   
+    
+   
+}
+
+class Aluno extends Pessoa{
+    #rga
+    constructor(rga){
+        super(rga)
+        this.rga = rga
+
+    }
+
+}
+const aluno = new Aluno()
+try {
+    Aluno.nome = ""
+    Aluno.cpf = "09443979136"
+    Aluno.rga = "444512"
+    
+    console.log("Nome: ", Aluno.nome)
+    console.log("CPF: ", Aluno.cpf)
+    console.log("RGA: ", Aluno.rga)
+  
+} catch (error) {
+    console.error(error.message)
+}
+
